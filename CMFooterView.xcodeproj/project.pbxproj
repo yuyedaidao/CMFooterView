@@ -16,6 +16,9 @@
 		551E6ECC1D378C400098B46F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 551E6ECA1D378C400098B46F /* LaunchScreen.storyboard */; };
 		551E6ED71D378C400098B46F /* CMFooterViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 551E6ED61D378C400098B46F /* CMFooterViewTests.m */; };
 		551E6EE21D378C400098B46F /* CMFooterViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 551E6EE11D378C400098B46F /* CMFooterViewUITests.m */; };
+		551E6EF21D378C9E0098B46F /* CMFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 551E6EF11D378C9E0098B46F /* CMFooterView.m */; };
+		551E6EF31D378C9E0098B46F /* CMFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 551E6EF11D378C9E0098B46F /* CMFooterView.m */; };
+		551E6EF41D378C9E0098B46F /* CMFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 551E6EF11D378C9E0098B46F /* CMFooterView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,8 @@
 		551E6EDD1D378C400098B46F /* CMFooterViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CMFooterViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		551E6EE11D378C400098B46F /* CMFooterViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMFooterViewUITests.m; sourceTree = "<group>"; };
 		551E6EE31D378C400098B46F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		551E6EF01D378C9E0098B46F /* CMFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMFooterView.h; sourceTree = "<group>"; };
+		551E6EF11D378C9E0098B46F /* CMFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFooterView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,7 @@
 		551E6EAD1D378C400098B46F = {
 			isa = PBXGroup;
 			children = (
+				551E6EEF1D378C660098B46F /* Classes */,
 				551E6EB81D378C400098B46F /* CMFooterView */,
 				551E6ED51D378C400098B46F /* CMFooterViewTests */,
 				551E6EE01D378C400098B46F /* CMFooterViewUITests */,
@@ -141,6 +147,15 @@
 				551E6EE31D378C400098B46F /* Info.plist */,
 			);
 			path = CMFooterViewUITests;
+			sourceTree = "<group>";
+		};
+		551E6EEF1D378C660098B46F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				551E6EF01D378C9E0098B46F /* CMFooterView.h */,
+				551E6EF11D378C9E0098B46F /* CMFooterView.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				551E6EF21D378C9E0098B46F /* CMFooterView.m in Sources */,
 				551E6EC11D378C400098B46F /* ViewController.m in Sources */,
 				551E6EBE1D378C400098B46F /* AppDelegate.m in Sources */,
 				551E6EBB1D378C400098B46F /* main.m in Sources */,
@@ -285,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				551E6ED71D378C400098B46F /* CMFooterViewTests.m in Sources */,
+				551E6EF31D378C9E0098B46F /* CMFooterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				551E6EE21D378C400098B46F /* CMFooterViewUITests.m in Sources */,
+				551E6EF41D378C9E0098B46F /* CMFooterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,7 +435,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CMFooterView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wyq.CMFooterView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -428,7 +448,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CMFooterView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wyq.CMFooterView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
