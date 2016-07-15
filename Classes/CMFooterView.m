@@ -125,7 +125,6 @@
         UIView *left = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 8, 10)];
         _textField.leftView = left;
         _textField.leftViewMode = UITextFieldViewModeAlways;
-        _textField.backgroundColor = [UIColor orangeColor];
         _textField.background = self.textFieldBackgroundImage;
         _textField.placeholder = self.textFieldPlaceholder;
 //        _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
