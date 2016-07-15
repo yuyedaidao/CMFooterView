@@ -50,7 +50,10 @@
  *  组件间的间距
  */
 @property (assign, nonatomic) IBInspectable CGFloat componentSpace;
-
+/**
+ * 单个Button组件的宽度，注意不能超过父视图宽度，值为0时自适应大小
+ */
+@property (assign, nonatomic) IBInspectable CGFloat buttonWidth;
 
 @property (copy, nonatomic) void (^didClickTextFieldBlock)(void);
 @property (copy, nonatomic) void (^didClickButtonBlock)(UIButton *button);
