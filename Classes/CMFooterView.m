@@ -32,13 +32,6 @@
     }
     return _buttonArray;
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 - (void)awakeFromNib {
     [self prepareTextField];
@@ -130,7 +123,6 @@
 - (void)prepareTextField {
     if (_textField) {
         [self addSubview:_textField];
-        [self.componentArray addObject:_textField];
     }
 }
 
@@ -139,18 +131,33 @@
         obj.translatesAutoresizingMaskIntoConstraints = NO;
         if (idx == 0 ) {
             [self addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeLeadingMargin relatedBy:NSLayoutRelationEqual toItem:obj attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
+            if (_textField) {
+                [obj setContentHuggingPriority:UILayoutPriorityFittingSizeLevel forAxis:UILayoutConstraintAxisHorizontal];
+            }
         } else {
             UIView *lastView = self.componentArray[idx - 1];
             [self addConstraint:[NSLayoutConstraint constraintWithItem:lastView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:obj attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
+            if (!_textField) {//添加等宽约束，否则会导致其中一个被拉伸
+                [self addConstraint:[NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:lastView attribute:NSLayoutAttributeWidth multiplier:1 constant:0]];
+            }
         }
         [self addConstraint:[NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
+        
         if (idx == self.componentArray.count - 1) {
             [self addConstraint:[NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailingMargin multiplier:1 constant:0]];
         }
     }];
 }
 - (void)buttonClickAction:(UIButton *)button {
-    
+    if (self.didClickButtonBlock) {
+        self.didClickButtonBlock(button);
+    }
+}
+
+#pragma mark subscript
+- (id)objectAtIndexedSubscript:(NSUInteger)idx {
+    NSAssert(idx < self.componentArray.count, @"访问CMFooterView下标越界");
+    return self.componentArray[idx];
 }
 
 

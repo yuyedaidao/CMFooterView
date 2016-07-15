@@ -28,6 +28,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="titles" value="a,b,c"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="textFieldPlaceholder" value="adafa"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="imageNames" value="a,,b"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showTextField" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -37,9 +38,13 @@
                             <constraint firstItem="qeo-g9-0px" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nFh-q6-ojV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="footerView" destination="qeo-g9-0px" id="scW-wg-GfU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="335" y="260"/>
         </scene>
     </scenes>
 </document>

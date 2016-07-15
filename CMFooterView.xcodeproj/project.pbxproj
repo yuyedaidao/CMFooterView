@@ -437,7 +437,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CMFooterView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wyq.CMFooterView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -450,7 +450,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CMFooterView/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wyq.CMFooterView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -522,6 +522,7 @@
 				551E6EE81D378C400098B46F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		551E6EE91D378C400098B46F /* Build configuration list for PBXNativeTarget "CMFooterViewTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +531,7 @@
 				551E6EEB1D378C400098B46F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		551E6EEC1D378C400098B46F /* Build configuration list for PBXNativeTarget "CMFooterViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +540,7 @@
 				551E6EEE1D378C400098B46F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -7,8 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "CMFooterView.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet CMFooterView *footerView;
 
 @end
 
@@ -17,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [((UIButton *)self.footerView[2]) setBackgroundColor:[UIColor blueColor]];
 }
 
 - (void)didReceiveMemoryWarning {

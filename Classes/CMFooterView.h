@@ -38,4 +38,5 @@ IB_DESIGNABLE
 @property (copy, nonatomic) void (^didClickTextFieldBlock)(void);
 @property (copy, nonatomic) void (^didClickButtonBlock)(UIButton *button);
 
+- (id)objectAtIndexedSubscript:(NSUInteger)idx;
 @end
