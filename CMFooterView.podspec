@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CMFooterView"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "类似头条新闻详情页面底部工具栏"
 
   # This description is used to generate tags and improve search results.
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/yuyedaidao/CMFooterView.git", :tag => "0.0.3" }
+  s.source       = { :git => "https://github.com/yuyedaidao/CMFooterView.git", :tag => "0.0.4" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

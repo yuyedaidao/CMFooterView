@@ -108,6 +108,9 @@
         if (title.length) {
             [button setTitle:title forState:UIControlStateNormal];
         }
+        if (_titleFontSize > 0) {
+            button.titleLabel.font = [UIFont systemFontOfSize:_titleFontSize];
+        }
         [button setTitleColor:(self.titleNormalColor ? : [UIColor lightTextColor]) forState:UIControlStateNormal];
         [button setTitleColor:(self.titleSelectedColor ? : self.tintColor) forState:UIControlStateHighlighted];
         [button setTitleColor:(self.titleSelectedColor ? : self.tintColor) forState:UIControlStateSelected];
@@ -139,6 +142,9 @@
             [self addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeLeadingMargin relatedBy:NSLayoutRelationEqual toItem:obj attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
             if (_textField) {
                 [obj setContentHuggingPriority:UILayoutPriorityFittingSizeLevel forAxis:UILayoutConstraintAxisHorizontal];
+                if (_textFieldHeight > 0) {
+                    [obj addConstraint:[NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:_textFieldHeight]];
+                }
             }
         } else {
             UIView *lastView = self.componentArray[idx - 1];

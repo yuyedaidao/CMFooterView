@@ -26,6 +26,10 @@
  */
 @property (assign, nonatomic) IBInspectable BOOL showTextField;
 /**
+ *  TextField的高度
+ */
+@property (assign, nonatomic) IBInspectable CGFloat textFieldHeight;
+/**
  *  TextField的placeholder
  */
 @property (copy, nonatomic) IBInspectable NSString *textFieldPlaceholder;
@@ -39,9 +43,14 @@
 @property (strong, nonatomic) IBInspectable UIColor *titleNormalColor;
 @property (strong, nonatomic) IBInspectable UIColor *titleSelectedColor;
 /**
+ *  标题的字体大小
+ */
+@property (assign, nonatomic) IBInspectable CGFloat titleFontSize;
+/**
  *  组件间的间距
  */
 @property (assign, nonatomic) IBInspectable CGFloat componentSpace;
+
 
 @property (copy, nonatomic) void (^didClickTextFieldBlock)(void);
 @property (copy, nonatomic) void (^didClickButtonBlock)(UIButton *button);
