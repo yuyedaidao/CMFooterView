@@ -8,7 +8,7 @@
 
 #import "CMFooterView.h"
 
-@interface CMFooterView ()
+@interface CMFooterView ()<UITextFieldDelegate>
 @property (strong, nonatomic) NSArray *titleArray;
 @property (strong, nonatomic) NSArray *imageNameArray;
 @property (strong, nonatomic) NSMutableArray *componentArray;
@@ -64,12 +64,7 @@
         if (showTextField) {
             if (!_textField) {
                 UITextField *tf = [[UITextField alloc] init];
-                if (_textFieldPlaceholder) {
-                    tf.placeholder = _textFieldPlaceholder;
-                }
-                if (_textFieldBackgroundImage) {
-                    tf.background = _textFieldBackgroundImage;
-                }
+                tf.borderStyle = UITextBorderStyleNone;
                 [self.componentArray addObject:tf];
                 self.textField = tf;
             }
@@ -106,7 +101,6 @@
         button.tag = i;
         NSString *imageName = self.imageNameArray.count > i ? self.imageNameArray[i] : nil;
         NSString *title = self.titleArray.count > i ? self.titleArray[i] : nil;
-        
         if (imageName) {
             [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_a",imageName]] forState:UIControlStateNormal];
             [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_b",imageName]] forState:UIControlStateNormal];
@@ -114,6 +108,9 @@
         if (title.length) {
             [button setTitle:title forState:UIControlStateNormal];
         }
+        [button setTitleColor:(self.titleNormalColor ? : [UIColor lightTextColor]) forState:UIControlStateNormal];
+        [button setTitleColor:(self.titleSelectedColor ? : self.tintColor) forState:UIControlStateHighlighted];
+        [button setTitleColor:(self.titleSelectedColor ? : self.tintColor) forState:UIControlStateSelected];
         [self addSubview:button];
         [button addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.componentArray addObject:button];
@@ -122,6 +119,15 @@
 
 - (void)prepareTextField {
     if (_textField) {
+        UIView *left = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 8, 10)];
+        _textField.leftView = left;
+        _textField.leftViewMode = UITextFieldViewModeAlways;
+        _textField.backgroundColor = [UIColor orangeColor];
+        _textField.background = self.textFieldBackgroundImage;
+        _textField.placeholder = self.textFieldPlaceholder;
+//        _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+//        _textField.enabled = NO;
+        _textField.delegate = self;
         [self addSubview:_textField];
     }
 }
@@ -136,7 +142,7 @@
             }
         } else {
             UIView *lastView = self.componentArray[idx - 1];
-            [self addConstraint:[NSLayoutConstraint constraintWithItem:lastView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:obj attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
+            [self addConstraint:[NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:lastView attribute:NSLayoutAttributeTrailing multiplier:1 constant:_componentSpace]];
             if (!_textField) {//添加等宽约束，否则会导致其中一个被拉伸
                 [self addConstraint:[NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:lastView attribute:NSLayoutAttributeWidth multiplier:1 constant:0]];
             }
@@ -152,6 +158,13 @@
     if (self.didClickButtonBlock) {
         self.didClickButtonBlock(button);
     }
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if (self.didClickTextFieldBlock) {
+        self.didClickTextFieldBlock();
+    }
+    return NO;
 }
 
 #pragma mark subscript

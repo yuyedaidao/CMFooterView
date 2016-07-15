@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-IB_DESIGNABLE
 @interface CMFooterView : UIView
 
 /**
@@ -34,6 +33,15 @@ IB_DESIGNABLE
  *  TextField的背景图
  */
 @property (strong, nonatomic) IBInspectable UIImage *textFieldBackgroundImage;
+/**
+ *  标题的平常和选中时的颜色
+ */
+@property (strong, nonatomic) IBInspectable UIColor *titleNormalColor;
+@property (strong, nonatomic) IBInspectable UIColor *titleSelectedColor;
+/**
+ *  组件间的间距
+ */
+@property (assign, nonatomic) IBInspectable CGFloat componentSpace;
 
 @property (copy, nonatomic) void (^didClickTextFieldBlock)(void);
 @property (copy, nonatomic) void (^didClickButtonBlock)(UIButton *button);
