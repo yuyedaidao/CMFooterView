@@ -103,7 +103,7 @@
         NSString *title = self.titleArray.count > i ? self.titleArray[i] : nil;
         if (imageName) {
             [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_a",imageName]] forState:UIControlStateNormal];
-            [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_b",imageName]] forState:UIControlStateNormal];
+            [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_b",imageName]] forState:UIControlStateSelected];
         }
         if (title.length) {
             [button setTitle:title forState:UIControlStateNormal];
