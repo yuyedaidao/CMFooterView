@@ -36,6 +36,7 @@
 }
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     [self prepareTextField];
     [self prepareButtons];
     [self layoutComponents];
