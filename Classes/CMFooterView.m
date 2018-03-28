@@ -7,6 +7,8 @@
 //
 
 #import "CMFooterView.h"
+#define KISIphoneX (CGSizeEqualToSize(CGSizeMake(375.f, 812.f), [UIScreen mainScreen].bounds.size) || CGSizeEqualToSize(CGSizeMake(812.f, 375.f), [UIScreen mainScreen].bounds.size))
+
 
 @interface CMFooterView ()<UITextFieldDelegate>
 @property (strong, nonatomic) NSArray *titleArray;
@@ -156,7 +158,7 @@
                 }
             }
         }
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1 constant:KISIphoneX ? -34 / 2  : 0]];
         
         if (idx == self.componentArray.count - 1) {
             [self addConstraint:[NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailingMargin multiplier:1 constant:0]];
@@ -182,5 +184,10 @@
     return self.componentArray[idx];
 }
 
+- (CGSize)intrinsicContentSize {
+    //判断是否是iPhoneX
+    return  CGSizeMake([UIScreen mainScreen].bounds.size.width, KISIphoneX ? 83 : 49);
+    
+}
 
 @end
